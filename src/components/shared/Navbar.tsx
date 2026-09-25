@@ -52,7 +52,7 @@ const Navbar = ({ planCount = 0, savedCount = 0 }) => {
   const link = (
     <>
       <li>
-        <Link className='hover:text-[#CCFF00]' href='/workouts'>
+        <Link className='text-[#C2F800] hover:text-[#bfd567]' href='/workouts'>
           Workouts
         </Link>
       </li>
