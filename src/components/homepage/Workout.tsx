@@ -21,7 +21,7 @@ const Workout = async() => {
         <h2 className='text-3xl'>THE LIBRARY</h2>
       <p>Twelve lifts covering every major muscle group.</p>
       </div>
-      <div>
+      <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
       {
         workoutData.map((workout: IWorkout)=>{
           return <WorkoutCard workout={workout} key={workout.id}></WorkoutCard>
