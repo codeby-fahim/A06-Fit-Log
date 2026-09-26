@@ -35,6 +35,8 @@ import { Poppins } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/shared/Navbar";
 import Footer from "@/components/homepage/Footer";
+import WorkoutProvider from "@/context/WorkoutContext";
+import { ToastContainer } from "react-toastify";
 
 // Poppins ফন্ট কনফিগারেশন
 const poppins = Poppins({
@@ -59,9 +61,13 @@ export default function RootLayout({
     lang="en" className="h-full antialiased">
       {/* body-তে poppins.className যোগ করা হয়েছে */}
       <body className={`${poppins.className} min-h-full flex flex-col`}>
-        <Navbar></Navbar>
+        <WorkoutProvider>
+          <Navbar></Navbar>
         {children}
         <Footer></Footer>
+          <ToastContainer />
+        </WorkoutProvider>
+        
       </body>
     </html>
   );

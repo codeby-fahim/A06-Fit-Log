@@ -1,6 +1,7 @@
+import PlanButton from "@/components/workoutDetail/PlanButton";
+import SavedButton from "@/components/workoutDetail/SavedButton";
 import { IWorkout } from "@/types/workoutType";
 import Image from "next/image";
-import Link from "next/link";
 import { notFound } from "next/navigation";
 
 interface IWorkoutDetailPageProps {
@@ -9,7 +10,7 @@ interface IWorkoutDetailPageProps {
 
 const getWorkouts = async () => {
   const res = await fetch('https://api.abcz.workers.dev/api/fitlog', {
-    next: { revalidate: 3600 }, // পারফরম্যান্সের জন্য ১ ঘণ্টা ক্যাশ রিভ্যালিডেশন
+    next: { revalidate: 3600 }, 
   });
   if (!res.ok) {
     throw new Error("Workout data fetch failed");
@@ -118,19 +119,21 @@ const WorkoutDetailPage = async ({ params }: IWorkoutDetailPageProps) => {
           </div>
 
           <div className="flex flex-col sm:flex-row gap-3 mt-8 pt-6 border-t border-zinc-800">
-            <button className="flex-1 bg-[#C2F800] hover:bg-[#d4ff33] text-black font-bold text-xs sm:text-sm py-3 px-4 rounded-lg flex items-center justify-center gap-2 transition-colors cursor-pointer">
+            {/* <button className="flex-1 bg-[#C2F800] hover:bg-[#d4ff33] text-black font-bold text-xs sm:text-sm py-3 px-4 rounded-lg flex items-center justify-center gap-2 transition-colors cursor-pointer">
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 4v16m8-8H4" />
               </svg>
               Add to today&apos;s plan
-            </button>
+            </button> */}
+            <PlanButton workout={workout}></PlanButton>
 
-            <button className="flex-1 bg-transparent hover:bg-zinc-800 text-gray-200 border border-zinc-700 font-medium text-xs sm:text-sm py-3 px-4 rounded-lg flex items-center justify-center gap-2 transition-colors cursor-pointer">
+            {/* <button className="flex-1 bg-transparent hover:bg-zinc-800 text-gray-200 border border-zinc-700 font-medium text-xs sm:text-sm py-3 px-4 rounded-lg flex items-center justify-center gap-2 transition-colors cursor-pointer">
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z" />
               </svg>
               Save for later
-            </button>
+            </button> */}
+            <SavedButton workout={workout}></SavedButton>
           </div>
 
         </div>
