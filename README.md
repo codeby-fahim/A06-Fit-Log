@@ -6,7 +6,7 @@ FitLog is a modern, responsive full-stack web application designed to help users
 
 ## 🔗 Live Demo
 
-🌐 **Live Website:** [https://a06-fit-log-git-main-fahimdf177-5613.vercel.app/](https://a06-fit-log-git-main-fahimdf177-5613.vercel.app/)
+🌐 **Live Website:** [https://a06-fit-log-teal.vercel.app/](https://a06-fit-log-teal.vercel.app/)
 
 ---
 
