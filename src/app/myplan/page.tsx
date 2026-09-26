@@ -77,7 +77,7 @@ const MyPlanPage = () => {
       </div>
     </div>
     {/* name of each tab group should be unique */}
-    <div className='text-right'>
+    <div className='text-right my-4'>
       <select 
         //  value={shortBy}
         //  onChange={(e)=> setShortBy(e.target.value as "rating"| "pages" | "year")}
