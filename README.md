@@ -1,36 +1,58 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🏋️‍♂️ FitLog — Workout & Fitness Tracker
 
-## Getting Started
+FitLog is a modern, responsive full-stack web application designed to help users track, organize, and manage their daily workout routines efficiently. Users can explore various exercises, view detailed guides, plan their daily workouts, and save items for later execution with real-time statistics tracking.
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## 🔗 Live Demo
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+🌐 **Live Website:** []()
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 🛠️ Technologies Used
 
-## Learn More
+### **Frontend & Framework**
+- **Next.js** (App Router)
+- **React.js**
+- **TypeScript**
 
-To learn more about Next.js, take a look at the following resources:
+### **Styling & UI**
+- **Tailwind CSS**
+- **React Icons**
+- **React Toastify** (For notifications)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### **State Management & Data Handling**
+- **React Context API** (Global state management for Plan & Saved items)
+- **REST API Integration**
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
+## ✨ 5 Key Features
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+1. **🏋️ Comprehensive Workout Details Page:** Detailed view for each exercise featuring high-quality visuals, targeted muscle group badges, difficulty levels, duration, calorie burn estimations, and step-by-step instructions.
+2. **📅 Interactive "Today's Plan" & "Saved for Later":** Seamlessly add workouts to your active daily plan or bookmark them for later with single-click actions and dynamic button state updates.
+3. **📊 Real-time Dynamic Analytics:** Live statistics summary calculating the total number of exercises, duration (in minutes), and total estimated calorie burn for planned activities.
+4. **🎛️ Multi-Criteria Sorting & Filtering:** Easily sort workouts by **Duration**, **Rating**, or **Calories** to find exercises that best fit your immediate training schedule.
+5. **📱 Fully Responsive & Dark-Themed UI:** Sleek, modern dark-themed layout tailored with an exceptional mobile-first user experience and empty-state placeholders.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+
+## 🚀 Getting Started
+
+Follow these steps to run the project locally:
+
+### 1. Clone the repository
+<pre><code>git clone [https://github.com/codeby-fahim/A06-Fit-Log.git](https://github.com/codeby-fahim/A06-Fit-Log.git)
+cd fitlog</code></pre>
+
+### 2. Install dependencies
+<pre><code>npm install</code></pre>
+
+### 3. Run the development server
+<pre><code>npm run dev</code></pre>
+Open http://localhost:3000 in your browser to see the application.
+
+---
+
+Created with ❤️ by Md Rakibul Islam Fahim
