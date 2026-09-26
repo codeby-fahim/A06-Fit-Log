@@ -11,7 +11,7 @@ const SavedButton = ({workout}:{workout:IWorkout}) => {
 
   const handleSavedButton=()=>{
     setSaved([...saved, workout]);
-    toast.success('🦄 Successfully Added!', {
+    toast.success(`🦄 Added Save for Later`, {
     position: "top-right",
     autoClose: 5000,
     hideProgressBar: false,

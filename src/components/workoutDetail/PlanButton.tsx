@@ -10,7 +10,7 @@ const PlanButton = ({workout}: {workout: IWorkout}) => {
 
   const handlePlanButton =()=>{
     setPlan([...plan, workout]);
-    toast.success('🦄 Successfully Added!', {
+    toast.success( `🦄 Added Today's Plan`, {
     position: "top-right",
     autoClose: 5000,
     hideProgressBar: false,

@@ -4,6 +4,7 @@ import { IWorkout } from '@/types/workoutType';
 import Image from 'next/image';
 import Link from 'next/link';
 import React, { useContext } from 'react';
+import { Bounce, toast } from 'react-toastify';
 
 const SavedWorkoutCard = ({ workout }: { workout: IWorkout }) => {
   const {
@@ -22,7 +23,31 @@ const SavedWorkoutCard = ({ workout }: { workout: IWorkout }) => {
     if (setSaved) {
       setSaved((prevSaved) => prevSaved.filter((item) => item.id !== targetId));
     }
+    toast.warn('Successfully Deleted', {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: false,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+      transition: Bounce,
+      });
   };
+  const handleToast=()=>{
+      toast.success('🦄 Wow so easy!', {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: false,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "colored",
+      transition: Bounce,
+      });
+    }
 
   return (
     <div className="bg-[#181A20] border border-zinc-800 rounded-2xl p-4 sm:p-5 flex flex-col md:flex-row items-start md:items-center justify-between gap-4 hover:border-zinc-700 transition-all duration-200 my-3">
@@ -81,7 +106,7 @@ const SavedWorkoutCard = ({ workout }: { workout: IWorkout }) => {
           View Details
         </Link>
 
-        <button className="flex items-center gap-1.5 text-xs font-bold text-black bg-[#C2F800] hover:bg-[#d4ff33] px-4 py-2 rounded-full transition-colors cursor-pointer">
+        <button onClick={()=> handleToast()} className="flex items-center gap-1.5 text-xs font-bold text-black bg-[#C2F800] hover:bg-[#d4ff33] px-4 py-2 rounded-full transition-colors cursor-pointer">
           <svg className="w-3.5 h-3.5 stroke-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
           </svg>

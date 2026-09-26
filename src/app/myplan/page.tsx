@@ -6,7 +6,7 @@ import SavedWorkoutCard from '@/components/workoutDetail/SavedWorkoutCard';
 import { WorkoutContext, WorkoutContextType } from '@/context/WorkoutContext';
 import { IWorkout } from '@/types/workoutType';
 import Link from 'next/link';
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 
 
 
@@ -14,6 +14,24 @@ import React, { useContext } from 'react';
 const MyPlanPage = () => {
 
   const {plan, saved} = useContext(WorkoutContext) as WorkoutContextType;
+  const [shortBy, setShortBy] = useState<"rating"| "duration" | "calories">("duration");
+
+  const sortedWorkout =(workout:IWorkout[])=>{
+    const sortedWorkout = [...workout];
+
+    if(shortBy === "duration"){
+      sortedWorkout.sort((a, b)=> a.duration - b.duration)
+    }else if(shortBy === "rating"){
+      sortedWorkout.sort((a, b)=> a.rating - b.rating)
+    }else if( shortBy === "calories"){
+      sortedWorkout.sort((a, b)=> a.caloriesBurned - b.caloriesBurned)
+    }
+    return sortedWorkout;
+  }
+  const sortPlan = sortedWorkout(plan);
+  const sortSaved = sortedWorkout(saved);
+
+
 
   // Calories & Minutes Count
    const exercisesCount = plan.length + saved.length;
@@ -77,16 +95,17 @@ const MyPlanPage = () => {
       </div>
     </div>
     {/* name of each tab group should be unique */}
-    <div className='text-right my-4'>
+    <div className='text-right my-4 '>
+      <h2 className='my-2'>Short By</h2>
       <select 
-        //  value={shortBy}
-        //  onChange={(e)=> setShortBy(e.target.value as "rating"| "pages" | "year")}
-         defaultValue="Pick a Runtime" className=" select select-success" >
+         value={shortBy}
+         onChange={(e)=> setShortBy(e.target.value as "rating"| "duration" | "calories")}
+         defaultValue="duration" className=" select select-success" >
         <option disabled={true}>Short By</option>
         
           <option value={"rating"}>Rating</option>
-        <option value={"pages"}>Duration</option>
-        <option value={"year"}>Calories</option>
+        <option value={"duration"}>Duration</option>
+        <option value={"calories"}>Calories</option>
        
       </select>
       </div>
@@ -94,7 +113,7 @@ const MyPlanPage = () => {
     <input type="radio" name="my_tabs_2" className="tab" aria-label="Today's Plan" />
     <div className="tab-content border-base-300 bg-base-100 p-10">
       {
-        plan.length > 0 ? plan.map((workout:IWorkout)=> {
+        sortPlan.length > 0 ? sortPlan.map((workout:IWorkout)=> {
            return <ListedWorkoutCard workout={workout} key={workout.id} ></ListedWorkoutCard>
           }) :(
              
@@ -126,7 +145,7 @@ const MyPlanPage = () => {
     <input type="radio" name="my_tabs_2" className="tab" aria-label="Saved" defaultChecked />
     <div className="tab-content border-base-300 bg-base-100 p-10">
        {
-        saved.length > 0 ? saved.map((workout:IWorkout)=> {
+        sortSaved.length > 0 ? sortSaved.map((workout:IWorkout)=> {
            return <SavedWorkoutCard workout={workout} key={workout.id} ></SavedWorkoutCard>
           }) :(
              
